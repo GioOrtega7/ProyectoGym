@@ -1,0 +1,47 @@
+{# Cargamos la librería #}
+{% load bootstrap4 %}
+ 
+{# CSS Bootstrap #}
+{% bootstrap_css %} 
+
+{# Widget Tweaks #}
+{% load widget_tweaks %}
+<table class="table table-striped table-hover">
+  <thead>
+    <tr>
+      <th width="35%">Codigo  de cargo</th>
+      <th>Nombre</th>
+      
+    </tr>
+  </thead>
+  <tbody>  
+ 
+  {% for cargo in object_list %}
+    <tr>
+      <td>{{ cargo.idcargo }}</td>
+      <td>{{ cargo.nombre }}</td>
+      <td>
+ 
+        <!-- Usaremos un formulario que realizará la tarea de eliminar un registro o postre desde la misma tabla HTML -->                        
+        <form method="POST" action="eliminar/{{cargo.idcargo}}">
+          {% csrf_token %}
+          <div class="btn-group">
+
+            <a href="detalle/{{cargo.idcargo}}" title="Ver" type="button" class="btn btn-success">Ver </a>
+            <a href="editar/{{cargo.idcargo}}" title="Editar" type="button" class="btn btn-primary">Editar </a>
+        
+            
+            <!-- Este botón ejecuta el formulario para eliminar un registro o postre en la Base de datos -->
+            <button class="btn btn-danger" onclick="return eliminar();" type="submit">
+              Eliminar
+            </button>
+ 
+          </div>
+        </form>
+ 
+      </td>
+    </tr>
+  {% endfor %}
+ 
+  </tbody>
+</table>
