@@ -90,8 +90,8 @@ DATABASES = {
         'ENGINE': 'django.db.backends.mysql',
         'NAME': 'gymbasededatos',
         'USER':'root',
-        'PASSWORD': 'Admin1234*',
-        'PORT':'3307',
+        'PASSWORD': 'GioWarzone-8344',
+        'PORT':'3308',
         'HOST':'127.0.0.1',
     }
 }
